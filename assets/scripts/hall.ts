@@ -10,18 +10,18 @@ export class hall extends Component {
     avatar: Sprite = null;
     @property(Label)
     assertBalance: cc.Label = null;
-/*    @property(Prefab)
+    @property(Prefab)
     createRoom: Prefab = null;
     @property(Prefab)
-    joinRoom: Prefab = null;*/
+    joinRoom: Prefab = null;
 
 
     onLoad() {
-        console.log("load hall")
+        console.debug("load hall sence")
     }
 
     start() {
-        console.log("start hall")
+        console.info("start hall sence")
         this.nickname.string = 'Alvin2'
         this.assertBalance.string = '0'
     }
@@ -33,17 +33,17 @@ export class hall extends Component {
     onButtonClick(event,customData) {
         switch (customData) {
             case 'create_room':
-                console.log("create room event")
-                /*var createRoom = cc.instantiate(this.createRoom)
-                createRoom.parent = this.node*/
-                return
+                console.info("create room event")
+                var createRoom = cc.instantiate(this.createRoom)
+                createRoom.parent = this.node
+                break
             case 'join_room':
-                console.log("join room event")
-                /*var joinRoom = cc.instantiate(this.joinRoom)
-                joinRoom.parent = this.node*/
-                return
+                console.info("join room event")
+                var joinRoom = cc.instantiate(this.joinRoom)
+                joinRoom.parent = this.node
+                break
             default:
-                console.log("unkown button click event")
+                console.error("not supported button click event")
         }
     }
 }
