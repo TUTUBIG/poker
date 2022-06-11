@@ -32,7 +32,8 @@ export class hall extends Component {
 
     onButtonClick(event,customData) {
         let sence = director.getScene()
-        let prefabContainer = sence.getChildByName("PrefabContainer")
+        let prefabContainer = sence.getChildByName("Canvas").getChildByName("PrefabContainer")
+
         switch (customData) {
             case 'create_room':
                 console.info("create room event")
