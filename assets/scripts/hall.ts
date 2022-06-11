@@ -30,13 +30,18 @@ export class hall extends Component {
         // console.log("update hall ",deltaTime)
     }
 
+    constructor() {
+        super();
+        console.log("constructor",this.node)
+    }
+
     onButtonClick(event,customData) {
         let sence = director.getScene()
         let prefabContainer = sence.getChildByName("Canvas").getChildByName("PrefabContainer")
 
         switch (customData) {
             case 'create_room':
-                console.info("create room event")
+                console.info("create room event",this.node)
                 let createRoom = cc.instantiate(this.createRoom)
                 createRoom.parent = prefabContainer
                 break
