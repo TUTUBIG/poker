@@ -1,19 +1,19 @@
-import { _decorator, Component, Node, Label, Sprite, Prefab } from 'cc';
+import { _decorator, Component, Node, Label, Sprite, Prefab, director, Camera } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('hall')
 export class hall extends Component {
 
     @property(Label)
-    nickname: Label = null;
+    private nickname: Label = null;
     @property(Sprite)
-    avatar: Sprite = null;
+    private avatar: Sprite = null;
     @property(Label)
-    assertBalance: cc.Label = null;
+    private assertBalance: cc.Label = null;
     @property(Prefab)
-    createRoom: Prefab = null;
+    private createRoom: Prefab = null;
     @property(Prefab)
-    joinRoom: Prefab = null;
+    private joinRoom: Prefab = null;
 
 
     onLoad() {
@@ -31,16 +31,18 @@ export class hall extends Component {
     }
 
     onButtonClick(event,customData) {
+        let sence = director.getScene()
+        let prefabContainer = sence.getChildByName("PrefabContainer")
         switch (customData) {
             case 'create_room':
                 console.info("create room event")
-                var createRoom = cc.instantiate(this.createRoom)
-                createRoom.parent = this.node
+                let createRoom = cc.instantiate(this.createRoom)
+                createRoom.parent = prefabContainer
                 break
             case 'join_room':
                 console.info("join room event")
-                var joinRoom = cc.instantiate(this.joinRoom)
-                joinRoom.parent = this.node
+                let joinRoom = cc.instantiate(this.joinRoom)
+                joinRoom.parent = prefabContainer
                 break
             default:
                 console.error("not supported button click event")
