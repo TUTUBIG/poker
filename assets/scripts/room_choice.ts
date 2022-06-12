@@ -1,5 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
-import myglobal from "../../../ddz_game/ddz_client/assets/scripts/mygolbal";
+import { _decorator, Component, Node, director, CCObject } from 'cc';
 const { ccclass, property } = _decorator;
 
 enum _roomLevel {
@@ -20,14 +19,14 @@ export class room_choice extends Component {
         
     }
 
-    _createRoom(level){
+    _createRoom(level: number) {
         console.debug("create room, level: ",level)
 
         //todo playerdata bottom & rate
-        cc.director.loadScene('game')
+        director.loadScene('game')
     }
 
-    choseRoom(event,customData) {
+    choseRoom(event: any,customData: any) {
         switch (customData) {
             case 'junior':
                 console.info("junior room chosen")

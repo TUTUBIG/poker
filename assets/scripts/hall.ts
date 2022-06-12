@@ -9,7 +9,7 @@ export class hall extends Component {
     @property(Sprite)
     private avatar: Sprite = null;
     @property(Label)
-    private assertBalance: cc.Label = null;
+    private assertBalance: Label = null;
     @property(Prefab)
     private createRoom: Prefab = null;
     @property(Prefab)
